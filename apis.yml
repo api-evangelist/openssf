@@ -23,10 +23,10 @@ apis:
       Programmatic access to OpenSSF security tools, vulnerability databases, and supply chain security resources.
     humanURL: https://openssf.org/resources/
     tags:
-  - Security
-  - Open Source
-  - Supply Chain
-  - Linux Foundation
+      - Security
+      - Open Source
+      - Supply Chain
+      - Linux Foundation
     properties:
       - type: Documentation
         url: https://openssf.org/resources/
