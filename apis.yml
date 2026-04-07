@@ -7,10 +7,10 @@ position: Consumer
 access: 3rd-Party
 image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - Security
-  - Open Source
-  - Supply Chain
   - Linux Foundation
+  - Open Source
+  - Security
+  - Supply Chain
 created: '2026-03-16'
 modified: '2026-03-16'
 url: >-
@@ -23,10 +23,10 @@ apis:
       Programmatic access to OpenSSF security tools, vulnerability databases, and supply chain security resources.
     humanURL: https://openssf.org/resources/
     tags:
-      - Security
-      - Open Source
-      - Supply Chain
       - Linux Foundation
+      - Open Source
+      - Security
+      - Supply Chain
     properties:
       - type: Documentation
         url: https://openssf.org/resources/
