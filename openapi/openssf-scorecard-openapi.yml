@@ -1,0 +1,127 @@
+openapi: 3.1.0
+info:
+  title: OpenSSF Scorecard API
+  description: >-
+    The OpenSSF Scorecard public API returns automated security health
+    metrics for open source repositories hosted on supported platforms
+    (currently github.com). Scorecard runs a series of checks (such as
+    Branch-Protection, Code-Review, Dangerous-Workflow, Dependency-Update-Tool,
+    Pinned-Dependencies, Signed-Releases, Token-Permissions, Vulnerabilities)
+    and returns per-check scores plus an aggregate score.
+  version: '1'
+  contact:
+    name: OpenSSF Scorecard
+    url: https://scorecard.dev/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+externalDocs:
+  description: OpenSSF Scorecard project
+  url: https://github.com/ossf/scorecard
+servers:
+  - url: https://api.securityscorecards.dev
+    description: Scorecard public API
+  - url: https://api.scorecard.dev
+    description: Scorecard public API (alternate hostname)
+paths:
+  /projects/{platform}/{org}/{repo}:
+    get:
+      operationId: getProjectScorecard
+      summary: Get Scorecard report for a repository
+      description: >-
+        Return the most recent Scorecard report for a public repository on a
+        supported source-control platform. Reports include the aggregate
+        score, the date of evaluation, the Scorecard version, and per-check
+        scores with documentation URLs.
+      parameters:
+        - name: platform
+          in: path
+          required: true
+          schema:
+            type: string
+            enum: [github.com]
+        - name: org
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: repo
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: commit
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Optional commit hash to retrieve a historical report.
+      responses:
+        '200':
+          description: Scorecard report.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ScorecardResult'
+        '404':
+          description: No report available for this repository.
+components:
+  schemas:
+    ScorecardResult:
+      type: object
+      properties:
+        date:
+          type: string
+          format: date
+        repo:
+          type: object
+          properties:
+            name:
+              type: string
+            commit:
+              type: string
+        scorecard:
+          type: object
+          properties:
+            version:
+              type: string
+            commit:
+              type: string
+        score:
+          type: number
+          minimum: 0
+          maximum: 10
+          description: Aggregate Scorecard score (0-10).
+        checks:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScorecardCheck'
+        metadata:
+          type: array
+          items:
+            type: string
+    ScorecardCheck:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Check name (e.g., Branch-Protection, Code-Review, Vulnerabilities).
+        score:
+          type: integer
+          minimum: -1
+          maximum: 10
+          description: Check score, or -1 when not applicable.
+        reason:
+          type: string
+        details:
+          type: array
+          items:
+            type: string
+        documentation:
+          type: object
+          properties:
+            short:
+              type: string
+            url:
+              type: string
+              format: uri
