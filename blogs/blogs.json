@@ -1,0 +1,13 @@
+{
+  "repo": "openssf",
+  "feeds": [
+    {
+      "source": "https://openssf.org/blog/",
+      "feed_url": "https://openssf.org/feed/",
+      "saved": 10,
+      "title": "Open Source Security Foundation"
+    }
+  ],
+  "post_count": 10,
+  "fetched": "2026-05-03T23:33:02Z"
+}
