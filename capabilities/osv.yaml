@@ -1,21 +1,23 @@
 naftiko: 1.0.0-alpha2
 info:
   label: OSV (Open Source Vulnerabilities) API
-  description: OSV is a distributed open source vulnerability database and triage infrastructure project hosted by the Open
-    Source Security Foundation (OpenSSF). The OSV API exposes vulnerability records keyed to specific package versions or
-    commits across multiple ecosystems (npm, PyPI, Maven, Go, NuGet, RubyGems, Cargo, Packagist, Hex, OSS-Fuzz, Linux, Android,
-    GitHub Actions, etc.).
+  description: 'OSV (Open Source Vulnerabilities) API. 5 operations. Lead operation: Query vulnerabilities for a package or
+    commit. Self-contained Naftiko capability covering one Openssf business surface.'
   tags:
   - Openssf
-  - API
-  created: '2026-05-06'
-  modified: '2026-05-06'
+  - OSV (Open Source Vulnerabilities) API
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    OPENSSF_API_KEY: OPENSSF_API_KEY
 capability:
   consumes:
   - type: http
-    namespace: openssf
+    namespace: osv
     baseUri: https://api.osv.dev
-    description: OSV (Open Source Vulnerabilities) API HTTP API.
+    description: OSV (Open Source Vulnerabilities) API business capability. Self-contained, no shared references.
     resources:
     - name: v1-query
       path: /v1/query
@@ -28,6 +30,12 @@ capability:
         - name: result
           type: object
           value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
     - name: v1-querybatch
       path: /v1/querybatch
       operations:
@@ -39,22 +47,28 @@ capability:
         - name: result
           type: object
           value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
     - name: v1-vulns-id
       path: /v1/vulns/{id}
       operations:
       - name: getvulnerability
         method: GET
         description: Get vulnerability by OSV ID
-        inputParameters:
-        - name: id
-          in: path
-          type: string
-          required: true
         outputRawFormat: json
         outputParameters:
         - name: result
           type: object
           value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
     - name: v1experimental-determineversion
       path: /v1experimental/determineversion
       operations:
@@ -66,147 +80,164 @@ capability:
         - name: result
           type: object
           value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
     - name: v1experimental-importfindings
       path: /v1experimental/importfindings
       operations:
       - name: importfindings
         method: GET
         description: Import-time quality check findings (experimental)
-        inputParameters:
-        - name: source
-          in: query
-          type: string
-          required: true
         outputRawFormat: json
         outputParameters:
         - name: result
           type: object
           value: $.
+        inputParameters:
+        - name: source
+          in: query
+          type: string
+          required: true
   exposes:
   - type: rest
+    namespace: osv-rest
     port: 8080
-    namespace: openssf-rest
-    description: REST adapter for OSV (Open Source Vulnerabilities) API.
+    description: REST adapter for OSV (Open Source Vulnerabilities) API. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
     resources:
-    - path: /v1/query
-      name: queryvulnerabilities
+    - path: /v1/v1/query
+      name: v1-query
+      description: REST surface for v1-query.
       operations:
       - method: POST
         name: queryvulnerabilities
         description: Query vulnerabilities for a package or commit
-        call: openssf.queryvulnerabilities
+        call: osv.queryvulnerabilities
+        with:
+          body: rest.body
         outputParameters:
         - type: object
           mapping: $.
-    - path: /v1/querybatch
-      name: queryvulnerabilitiesbatch
+    - path: /v1/v1/querybatch
+      name: v1-querybatch
+      description: REST surface for v1-querybatch.
       operations:
       - method: POST
         name: queryvulnerabilitiesbatch
         description: Batched vulnerability query
-        call: openssf.queryvulnerabilitiesbatch
+        call: osv.queryvulnerabilitiesbatch
+        with:
+          body: rest.body
         outputParameters:
         - type: object
           mapping: $.
-    - path: /v1/vulns/{id}
-      name: getvulnerability
+    - path: /v1/v1/vulns/{id}
+      name: v1-vulns-id
+      description: REST surface for v1-vulns-id.
       operations:
       - method: GET
         name: getvulnerability
         description: Get vulnerability by OSV ID
-        call: openssf.getvulnerability
+        call: osv.getvulnerability
         with:
           id: rest.id
         outputParameters:
         - type: object
           mapping: $.
-    - path: /v1experimental/determineversion
-      name: determineversion
+    - path: /v1/v1experimental/determineversion
+      name: v1experimental-determineversion
+      description: REST surface for v1experimental-determineversion.
       operations:
       - method: POST
         name: determineversion
         description: Determine probable versions of a C/C++ project (experimental)
-        call: openssf.determineversion
+        call: osv.determineversion
+        with:
+          body: rest.body
         outputParameters:
         - type: object
           mapping: $.
-    - path: /v1experimental/importfindings
-      name: importfindings
+    - path: /v1/v1experimental/importfindings
+      name: v1experimental-importfindings
+      description: REST surface for v1experimental-importfindings.
       operations:
       - method: GET
         name: importfindings
         description: Import-time quality check findings (experimental)
-        call: openssf.importfindings
+        call: osv.importfindings
+        with:
+          source: rest.source
         outputParameters:
         - type: object
           mapping: $.
   - type: mcp
+    namespace: osv-mcp
     port: 9090
-    namespace: openssf-mcp
     transport: http
-    description: MCP adapter for OSV (Open Source Vulnerabilities) API for AI agent use.
+    description: MCP adapter for OSV (Open Source Vulnerabilities) API. One tool per consumed operation, routed inline through
+      this capability's consumes block.
     tools:
-    - name: queryvulnerabilities
+    - name: query-vulnerabilities-package-commit
       description: Query vulnerabilities for a package or commit
       hints:
-        readOnly: false
+        readOnly: true
         destructive: false
         idempotent: false
-      call: openssf.queryvulnerabilities
+      call: osv.queryvulnerabilities
+      with:
+        body: tools.body
       outputParameters:
       - type: object
         mapping: $.
-    - name: queryvulnerabilitiesbatch
+    - name: batched-vulnerability-query
       description: Batched vulnerability query
       hints:
-        readOnly: false
+        readOnly: true
         destructive: false
         idempotent: false
-      call: openssf.queryvulnerabilitiesbatch
+      call: osv.queryvulnerabilitiesbatch
+      with:
+        body: tools.body
       outputParameters:
       - type: object
         mapping: $.
-    - name: getvulnerability
+    - name: get-vulnerability-osv-id
       description: Get vulnerability by OSV ID
       hints:
         readOnly: true
         destructive: false
         idempotent: true
-      call: openssf.getvulnerability
+      call: osv.getvulnerability
       with:
         id: tools.id
-      inputParameters:
-      - name: id
-        type: string
-        description: id
-        required: true
       outputParameters:
       - type: object
         mapping: $.
-    - name: determineversion
+    - name: determine-probable-versions-c-c
       description: Determine probable versions of a C/C++ project (experimental)
       hints:
         readOnly: false
         destructive: false
         idempotent: false
-      call: openssf.determineversion
+      call: osv.determineversion
+      with:
+        body: tools.body
       outputParameters:
       - type: object
         mapping: $.
-    - name: importfindings
+    - name: import-time-quality-check-findings
       description: Import-time quality check findings (experimental)
       hints:
         readOnly: true
         destructive: false
         idempotent: true
-      call: openssf.importfindings
+      call: osv.importfindings
       with:
         source: tools.source
-      inputParameters:
-      - name: source
-        type: string
-        description: source
-        required: true
       outputParameters:
       - type: object
         mapping: $.

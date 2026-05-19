@@ -1,0 +1,94 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: OpenSSF Scorecard API
+  description: 'OpenSSF Scorecard API. 1 operations. Lead operation: Get Scorecard report for a repository. Self-contained
+    Naftiko capability covering one Openssf business surface.'
+  tags:
+  - Openssf
+  - OpenSSF Scorecard API
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    OPENSSF_API_KEY: OPENSSF_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: scorecard
+    baseUri: https://api.securityscorecards.dev
+    description: OpenSSF Scorecard API business capability. Self-contained, no shared references.
+    resources:
+    - name: projects-platform-org-repo
+      path: /projects/{platform}/{org}/{repo}
+      operations:
+      - name: getprojectscorecard
+        method: GET
+        description: Get Scorecard report for a repository
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: platform
+          in: path
+          type: string
+          required: true
+        - name: org
+          in: path
+          type: string
+          required: true
+        - name: repo
+          in: path
+          type: string
+          required: true
+        - name: commit
+          in: query
+          type: string
+          description: Optional commit hash to retrieve a historical report.
+  exposes:
+  - type: rest
+    namespace: scorecard-rest
+    port: 8080
+    description: REST adapter for OpenSSF Scorecard API. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/projects/{platform}/{org}/{repo}
+      name: projects-platform-org-repo
+      description: REST surface for projects-platform-org-repo.
+      operations:
+      - method: GET
+        name: getprojectscorecard
+        description: Get Scorecard report for a repository
+        call: scorecard.getprojectscorecard
+        with:
+          platform: rest.platform
+          org: rest.org
+          repo: rest.repo
+          commit: rest.commit
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: scorecard-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for OpenSSF Scorecard API. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: get-scorecard-report-repository
+      description: Get Scorecard report for a repository
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: scorecard.getprojectscorecard
+      with:
+        platform: tools.platform
+        org: tools.org
+        repo: tools.repo
+        commit: tools.commit
+      outputParameters:
+      - type: object
+        mapping: $.
