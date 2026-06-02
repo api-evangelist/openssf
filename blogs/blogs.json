@@ -2,12 +2,20 @@
   "repo": "openssf",
   "feeds": [
     {
-      "source": "https://openssf.org/blog/",
+      "source": "https://openssf.org/blog/feed/",
       "feed_url": "https://openssf.org/blog/feed/",
-      "title": "Comments on: Blog",
-      "saved": 0
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    },
+    {
+      "source": "https://openssf.org/projects/",
+      "feed_url": "https://openssf.org/feed/",
+      "title": "",
+      "saved": 2,
+      "method": "discovered"
     }
   ],
-  "post_count": 10,
-  "fetched": "2026-05-17T20:20:35Z"
+  "post_count": 12,
+  "fetched": "2026-06-01T23:35:02Z"
 }
