@@ -1,0 +1,44 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OpenSSF Scorecard API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Get Scorecard report for a repository",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.securityscorecards.dev/projects/:platform/:org/:repo",
+        "params": [
+          {
+            "name": "platform",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "org",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "repo",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "commit",
+            "value": "",
+            "type": "query",
+            "description": "Optional commit hash to retrieve a historical report."
+          }
+        ]
+      },
+      "docs": "Return the most recent Scorecard report for a public repository on a supported source-control platform. Reports include the aggregate score, the date of evaluation, the Scorecard version, and per-check scores with documentation URLs."
+    }
+  ],
+  "bundled": true
+}

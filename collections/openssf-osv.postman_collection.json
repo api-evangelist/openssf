@@ -1,0 +1,491 @@
+{
+  "item": [
+    {
+      "id": "f02cc0b6-c513-424a-a8bd-d2e4841668bf",
+      "name": "Query vulnerabilities for a package or commit",
+      "request": {
+        "name": "Query vulnerabilities for a package or commit",
+        "description": {
+          "content": "Query vulnerabilities for a project at a given commit hash or for a specific package and version. Returns matching OSV vulnerability records.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "v1",
+            "query"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"commit\": \"<string>\",\n  \"version\": \"<string>\",\n  \"package\": {\n    \"name\": \"<string>\",\n    \"ecosystem\": \"<string>\",\n    \"purl\": \"<string>\"\n  },\n  \"page_token\": \"<string>\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "10b725ae-607e-4a46-999b-12d8e9527e20",
+          "name": "Matching vulnerabilities.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "query"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"commit\": \"<string>\",\n  \"version\": \"<string>\",\n  \"package\": {\n    \"name\": \"<string>\",\n    \"ecosystem\": \"<string>\",\n    \"purl\": \"<string>\"\n  },\n  \"page_token\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"vulns\": [\n    {\n      \"schema_version\": \"string\",\n      \"id\": \"string\",\n      \"modified\": \"1967-06-03T23:19:13.091Z\",\n      \"published\": \"2023-01-10T22:24:53.682Z\",\n      \"withdrawn\": \"1995-01-15T14:16:20.122Z\",\n      \"aliases\": [\n        \"string\",\n        \"string\"\n      ],\n      \"related\": [\n        \"string\",\n        \"string\"\n      ],\n      \"summary\": \"string\",\n      \"details\": \"string\",\n      \"severity\": [\n        {\n          \"type\": \"string\",\n          \"score\": \"string\"\n        },\n        {\n          \"type\": \"string\",\n          \"score\": \"string\"\n        }\n      ],\n      \"affected\": [\n        {\n          \"package\": {\n            \"ecosystem\": \"string\",\n            \"name\": \"string\",\n            \"purl\": \"string\"\n          },\n          \"versions\": [\n            \"string\",\n            \"string\"\n          ],\n          \"ecosystem_specific\": {},\n          \"database_specific\": {}\n        },\n        {\n          \"package\": {\n            \"ecosystem\": \"string\",\n            \"name\": \"string\",\n            \"purl\": \"string\"\n          },\n          \"versions\": [\n            \"string\",\n            \"string\"\n          ],\n          \"ecosystem_specific\": {},\n          \"database_specific\": {}\n        }\n      ],\n      \"references\": [\n        {\n          \"type\": \"string\",\n          \"url\": \"string\"\n        },\n        {\n          \"type\": \"string\",\n          \"url\": \"string\"\n        }\n      ],\n      \"database_specific\": {}\n    },\n    {\n      \"schema_version\": \"string\",\n      \"id\": \"string\",\n      \"modified\": \"1986-06-03T22:18:10.616Z\",\n      \"published\": \"2025-12-21T08:30:32.685Z\",\n      \"withdrawn\": \"1979-05-15T11:15:40.982Z\",\n      \"aliases\": [\n        \"string\",\n        \"string\"\n      ],\n      \"related\": [\n        \"string\",\n        \"string\"\n      ],\n      \"summary\": \"string\",\n      \"details\": \"string\",\n      \"severity\": [\n        {\n          \"type\": \"string\",\n          \"score\": \"string\"\n        },\n        {\n          \"type\": \"string\",\n          \"score\": \"string\"\n        }\n      ],\n      \"affected\": [\n        {\n          \"package\": {\n            \"ecosystem\": \"string\",\n            \"name\": \"string\",\n            \"purl\": \"string\"\n          },\n          \"versions\": [\n            \"string\",\n            \"string\"\n          ],\n          \"ecosystem_specific\": {},\n          \"database_specific\": {}\n        },\n        {\n          \"package\": {\n            \"ecosystem\": \"string\",\n            \"name\": \"string\",\n            \"purl\": \"string\"\n          },\n          \"versions\": [\n            \"string\",\n            \"string\"\n          ],\n          \"ecosystem_specific\": {},\n          \"database_specific\": {}\n        }\n      ],\n      \"references\": [\n        {\n          \"type\": \"string\",\n          \"url\": \"string\"\n        },\n        {\n          \"type\": \"string\",\n          \"url\": \"string\"\n        }\n      ],\n      \"database_specific\": {}\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "53a77549-83ce-4fd3-896f-d51354baacf2",
+      "name": "Batched vulnerability query",
+      "request": {
+        "name": "Batched vulnerability query",
+        "description": {
+          "content": "Batched query for multiple package versions or commit hashes in a single request. Returns vulnerability ID lists per query that can be hydrated via /v1/vulns/{id}.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "v1",
+            "querybatch"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"queries\": [\n    {\n      \"commit\": \"<string>\",\n      \"version\": \"<string>\",\n      \"package\": {\n        \"name\": \"<string>\",\n        \"ecosystem\": \"<string>\",\n        \"purl\": \"<string>\"\n      },\n      \"page_token\": \"<string>\"\n    },\n    {\n      \"commit\": \"<string>\",\n      \"version\": \"<string>\",\n      \"package\": {\n        \"name\": \"<string>\",\n        \"ecosystem\": \"<string>\",\n        \"purl\": \"<string>\"\n      },\n      \"page_token\": \"<string>\"\n    }\n  ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "ff72b1e6-dea8-402c-a6ca-3b664a02ca44",
+          "name": "Per-query vulnerability ID lists.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "querybatch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"queries\": [\n    {\n      \"commit\": \"string\",\n      \"version\": \"string\",\n      \"package\": {\n        \"name\": \"string\",\n        \"ecosystem\": \"string\",\n        \"purl\": \"string\"\n      },\n      \"page_token\": \"string\"\n    },\n    {\n      \"commit\": \"string\",\n      \"version\": \"string\",\n      \"package\": {\n        \"name\": \"string\",\n        \"ecosystem\": \"string\",\n        \"purl\": \"string\"\n      },\n      \"page_token\": \"string\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"results\": [\n    {\n      \"vulns\": [\n        {\n          \"id\": \"string\",\n          \"modified\": \"2015-01-26T20:22:57.714Z\"\n        },\n        {\n          \"id\": \"string\",\n          \"modified\": \"1964-03-17T20:00:21.085Z\"\n        }\n      ]\n    },\n    {\n      \"vulns\": [\n        {\n          \"id\": \"string\",\n          \"modified\": \"1960-12-31T23:27:17.517Z\"\n        },\n        {\n          \"id\": \"string\",\n          \"modified\": \"1950-01-06T23:03:29.151Z\"\n        }\n      ]\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "0f9555af-8e44-458a-92be-51ad5b834322",
+      "name": "Get vulnerability by OSV ID",
+      "request": {
+        "name": "Get vulnerability by OSV ID",
+        "description": {
+          "content": "Return a Vulnerability object for a given OSV ID.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "v1",
+            "vulns",
+            ":id"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "id",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "efb2bcc5-aff0-4d61-b18e-3b0589535d29",
+          "name": "Vulnerability record.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "vulns",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"schema_version\": \"string\",\n  \"id\": \"string\",\n  \"modified\": \"1996-11-08T12:44:39.660Z\",\n  \"published\": \"1984-10-26T23:51:00.797Z\",\n  \"withdrawn\": \"2002-04-23T20:10:50.042Z\",\n  \"aliases\": [\n    \"string\",\n    \"string\"\n  ],\n  \"related\": [\n    \"string\",\n    \"string\"\n  ],\n  \"summary\": \"string\",\n  \"details\": \"string\",\n  \"severity\": [\n    {\n      \"type\": \"string\",\n      \"score\": \"string\"\n    },\n    {\n      \"type\": \"string\",\n      \"score\": \"string\"\n    }\n  ],\n  \"affected\": [\n    {\n      \"package\": {\n        \"ecosystem\": \"string\",\n        \"name\": \"string\",\n        \"purl\": \"string\"\n      },\n      \"versions\": [\n        \"string\",\n        \"string\"\n      ],\n      \"ecosystem_specific\": {},\n      \"database_specific\": {}\n    },\n    {\n      \"package\": {\n        \"ecosystem\": \"string\",\n        \"name\": \"string\",\n        \"purl\": \"string\"\n      },\n      \"versions\": [\n        \"string\",\n        \"string\"\n      ],\n      \"ecosystem_specific\": {},\n      \"database_specific\": {}\n    }\n  ],\n  \"references\": [\n    {\n      \"type\": \"string\",\n      \"url\": \"string\"\n    },\n    {\n      \"type\": \"string\",\n      \"url\": \"string\"\n    }\n  ],\n  \"database_specific\": {}\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "92a24429-850c-4123-bc67-77b9b80a8e96",
+          "name": "Vulnerability not found.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "vulns",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Not Found",
+          "code": 404,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "d9611bf7-470d-439f-983d-ae99f0333287",
+      "name": "Determine probable versions of a C/C++ project (experimental)",
+      "request": {
+        "name": "Determine probable versions of a C/C++ project (experimental)",
+        "description": {
+          "content": "Experimental endpoint that returns probable versions of a C/C++ project given a set of file hashes.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "v1experimental",
+            "determineversion"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "<object>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "36cd4405-8192-4850-9b6f-acbd1af48c99",
+          "name": "Candidate versions.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1experimental",
+                "determineversion"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "9ffedf53-d528-415a-94ab-24c4b10ecf56",
+      "name": "Import-time quality check findings (experimental)",
+      "request": {
+        "name": "Import-time quality check findings (experimental)",
+        "description": {
+          "content": "Retrieve records that failed import-time quality checks for a given source.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "v1experimental",
+            "importfindings"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "source",
+              "value": "<string>",
+              "description": "(Required) "
+            }
+          ],
+          "variable": []
+        },
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "359b42a1-765d-4dde-bc83-fbebea3212dd",
+          "name": "Import findings.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1experimental",
+                "importfindings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "source",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.osv.dev",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "f62381e0-0b1f-481d-89ee-5fee00cf4d44",
+    "name": "OSV (Open Source Vulnerabilities) API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "OSV is a distributed open source vulnerability database and triage infrastructure project hosted by the Open Source Security Foundation (OpenSSF). The OSV API exposes vulnerability records keyed to specific package versions or commits across multiple ecosystems (npm, PyPI, Maven, Go, NuGet, RubyGems, Cargo, Packagist, Hex, OSS-Fuzz, Linux, Android, GitHub Actions, etc.).\n\nContact Support:\n Name: OSV",
+      "type": "text/plain"
+    }
+  }
+}

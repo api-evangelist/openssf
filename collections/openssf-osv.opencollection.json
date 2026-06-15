@@ -1,0 +1,91 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OSV (Open Source Vulnerabilities) API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Query vulnerabilities for a package or commit",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api.osv.dev/v1/query",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Query vulnerabilities for a project at a given commit hash or for a specific package and version. Returns matching OSV vulnerability records."
+    },
+    {
+      "info": {
+        "name": "Batched vulnerability query",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api.osv.dev/v1/querybatch",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Batched query for multiple package versions or commit hashes in a single request. Returns vulnerability ID lists per query that can be hydrated via /v1/vulns/{id}."
+    },
+    {
+      "info": {
+        "name": "Get vulnerability by OSV ID",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.osv.dev/v1/vulns/:id",
+        "params": [
+          {
+            "name": "id",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Return a Vulnerability object for a given OSV ID."
+    },
+    {
+      "info": {
+        "name": "Determine probable versions of a C/C++ project (experimental)",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api.osv.dev/v1experimental/determineversion",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Experimental endpoint that returns probable versions of a C/C++ project given a set of file hashes."
+    },
+    {
+      "info": {
+        "name": "Import-time quality check findings (experimental)",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.osv.dev/v1experimental/importfindings",
+        "params": [
+          {
+            "name": "source",
+            "value": "",
+            "type": "query"
+          }
+        ]
+      },
+      "docs": "Retrieve records that failed import-time quality checks for a given source."
+    }
+  ],
+  "bundled": true
+}
