@@ -9,11 +9,11 @@
       "method": "feed"
     },
     {
-      "source": "https://openssf.org/blog/",
+      "source": "https://openssf.org/feed/",
       "feed_url": "https://openssf.org/feed/",
       "title": "",
-      "saved": 1,
-      "method": "discovered"
+      "saved": 3,
+      "method": "feed"
     },
     {
       "source": "https://openssf.org/projects/",
@@ -23,6 +23,6 @@
       "method": "discovered"
     }
   ],
-  "post_count": 14,
-  "fetched": "2026-06-14T20:42:17Z"
+  "post_count": 18,
+  "fetched": "2026-06-27T12:03:07Z"
 }
