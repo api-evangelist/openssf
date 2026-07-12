@@ -110,6 +110,8 @@ apis:
   - url: graphql/openssf-graphql.md
     type: GraphQL
 common:
+- type: DomainSecurity
+  url: security/openssf-domain-security.yml
 - type: LinkedIn
   url: https://www.linkedin.com/company/openssf
 - type: Website
