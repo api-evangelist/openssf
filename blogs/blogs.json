@@ -12,7 +12,7 @@
       "source": "https://openssf.org/feed/",
       "feed_url": "https://openssf.org/feed/",
       "title": "",
-      "saved": 3,
+      "saved": 0,
       "method": "feed"
     },
     {
@@ -23,6 +23,6 @@
       "method": "discovered"
     }
   ],
-  "post_count": 18,
-  "fetched": "2026-06-27T12:03:07Z"
+  "post_count": 23,
+  "fetched": "2026-07-11T11:50:51Z"
 }
