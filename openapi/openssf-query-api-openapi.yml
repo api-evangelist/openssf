@@ -1,0 +1,148 @@
+openapi: 3.1.0
+info:
+  title: OSV (Open Source Vulnerabilities) Projects Query API
+  description: OSV is a distributed open source vulnerability database and triage infrastructure project hosted by the Open Source Security Foundation (OpenSSF). The OSV API exposes vulnerability records keyed to specific package versions or commits across multiple ecosystems (npm, PyPI, Maven, Go, NuGet, RubyGems, Cargo, Packagist, Hex, OSS-Fuzz, Linux, Android, GitHub Actions, etc.).
+  version: '1'
+  contact:
+    name: OSV
+    url: https://osv.dev/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: https://api.osv.dev
+  description: OSV production API
+tags:
+- name: Query
+paths:
+  /v1/query:
+    post:
+      operationId: queryVulnerabilities
+      summary: Query vulnerabilities for a package or commit
+      description: Query vulnerabilities for a project at a given commit hash or for a specific package and version. Returns matching OSV vulnerability records.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QueryRequest'
+      responses:
+        '200':
+          description: Matching vulnerabilities.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  vulns:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Vulnerability'
+      tags:
+      - Query
+components:
+  schemas:
+    Vulnerability:
+      type: object
+      description: OSV schema vulnerability record.
+      properties:
+        schema_version:
+          type: string
+        id:
+          type: string
+        modified:
+          type: string
+          format: date-time
+        published:
+          type: string
+          format: date-time
+        withdrawn:
+          type: string
+          format: date-time
+        aliases:
+          type: array
+          items:
+            type: string
+        related:
+          type: array
+          items:
+            type: string
+        summary:
+          type: string
+        details:
+          type: string
+        severity:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              score:
+                type: string
+        affected:
+          type: array
+          items:
+            type: object
+            properties:
+              package:
+                type: object
+                properties:
+                  ecosystem:
+                    type: string
+                  name:
+                    type: string
+                  purl:
+                    type: string
+              ranges:
+                type: array
+                items:
+                  type: object
+              versions:
+                type: array
+                items:
+                  type: string
+              ecosystem_specific:
+                type: object
+              database_specific:
+                type: object
+        references:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              url:
+                type: string
+        credits:
+          type: array
+          items:
+            type: object
+        database_specific:
+          type: object
+    QueryRequest:
+      type: object
+      properties:
+        commit:
+          type: string
+          description: Commit hash to query.
+        version:
+          type: string
+          description: Package version.
+        package:
+          type: object
+          properties:
+            name:
+              type: string
+            ecosystem:
+              type: string
+              description: e.g., npm, PyPI, Maven, Go, crates.io, RubyGems, NuGet, Packagist, Hex, GitHub Actions, Linux, Android, OSS-Fuzz.
+            purl:
+              type: string
+              description: Package URL (purl).
+        page_token:
+          type: string
+externalDocs:
+  description: OSV API documentation
+  url: https://google.github.io/osv.dev/api/

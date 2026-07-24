@@ -1,0 +1,52 @@
+openapi: 3.1.0
+info:
+  title: OSV (Open Source Vulnerabilities) Projects V1experimental API
+  description: OSV is a distributed open source vulnerability database and triage infrastructure project hosted by the Open Source Security Foundation (OpenSSF). The OSV API exposes vulnerability records keyed to specific package versions or commits across multiple ecosystems (npm, PyPI, Maven, Go, NuGet, RubyGems, Cargo, Packagist, Hex, OSS-Fuzz, Linux, Android, GitHub Actions, etc.).
+  version: '1'
+  contact:
+    name: OSV
+    url: https://osv.dev/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: https://api.osv.dev
+  description: OSV production API
+tags:
+- name: V1experimental
+paths:
+  /v1experimental/determineversion:
+    post:
+      operationId: determineVersion
+      summary: Determine probable versions of a C/C++ project (experimental)
+      description: Experimental endpoint that returns probable versions of a C/C++ project given a set of file hashes.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Candidate versions.
+      tags:
+      - V1experimental
+  /v1experimental/importfindings:
+    get:
+      operationId: importFindings
+      summary: Import-time quality check findings (experimental)
+      description: Retrieve records that failed import-time quality checks for a given source.
+      parameters:
+      - name: source
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Import findings.
+      tags:
+      - V1experimental
+externalDocs:
+  description: OSV API documentation
+  url: https://google.github.io/osv.dev/api/

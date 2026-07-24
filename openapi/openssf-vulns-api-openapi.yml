@@ -1,0 +1,124 @@
+openapi: 3.1.0
+info:
+  title: OSV (Open Source Vulnerabilities) Projects Vulns API
+  description: OSV is a distributed open source vulnerability database and triage infrastructure project hosted by the Open Source Security Foundation (OpenSSF). The OSV API exposes vulnerability records keyed to specific package versions or commits across multiple ecosystems (npm, PyPI, Maven, Go, NuGet, RubyGems, Cargo, Packagist, Hex, OSS-Fuzz, Linux, Android, GitHub Actions, etc.).
+  version: '1'
+  contact:
+    name: OSV
+    url: https://osv.dev/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: https://api.osv.dev
+  description: OSV production API
+tags:
+- name: Vulns
+paths:
+  /v1/vulns/{id}:
+    get:
+      operationId: getVulnerability
+      summary: Get vulnerability by OSV ID
+      description: Return a Vulnerability object for a given OSV ID.
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          example: GHSA-xxxx-xxxx-xxxx
+      responses:
+        '200':
+          description: Vulnerability record.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Vulnerability'
+        '404':
+          description: Vulnerability not found.
+      tags:
+      - Vulns
+components:
+  schemas:
+    Vulnerability:
+      type: object
+      description: OSV schema vulnerability record.
+      properties:
+        schema_version:
+          type: string
+        id:
+          type: string
+        modified:
+          type: string
+          format: date-time
+        published:
+          type: string
+          format: date-time
+        withdrawn:
+          type: string
+          format: date-time
+        aliases:
+          type: array
+          items:
+            type: string
+        related:
+          type: array
+          items:
+            type: string
+        summary:
+          type: string
+        details:
+          type: string
+        severity:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              score:
+                type: string
+        affected:
+          type: array
+          items:
+            type: object
+            properties:
+              package:
+                type: object
+                properties:
+                  ecosystem:
+                    type: string
+                  name:
+                    type: string
+                  purl:
+                    type: string
+              ranges:
+                type: array
+                items:
+                  type: object
+              versions:
+                type: array
+                items:
+                  type: string
+              ecosystem_specific:
+                type: object
+              database_specific:
+                type: object
+        references:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              url:
+                type: string
+        credits:
+          type: array
+          items:
+            type: object
+        database_specific:
+          type: object
+externalDocs:
+  description: OSV API documentation
+  url: https://google.github.io/osv.dev/api/
