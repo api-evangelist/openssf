@@ -7,9 +7,21 @@ description: >-
   stewards a number of projects with public REST APIs, including the OSV (Open Source Vulnerabilities) database, the
   Scorecard automated security health-check service, and Sigstore signing infrastructure.
 type: Index
+accessModel:
+  pricing: freemium
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Freemium
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/openssf.png
 tags:
 - Linux Foundation
 - Open Source
@@ -21,63 +33,13 @@ modified: '2026-05-19'
 url: https://raw.githubusercontent.com/api-evangelist/openssf/refs/heads/main/apis.yml
 specificationVersion: '0.19'
 apis:
-- aid: openssf:osv-api
-  name: OSV (Open Source Vulnerabilities) API
-  description: >-
-    OSV is an OpenSSF-hosted distributed vulnerability database and query infrastructure. The OSV API at api.osv.dev
-    exposes vulnerability records keyed to specific package versions or commits across multiple ecosystems including
-    npm, PyPI, Maven, Go, NuGet, RubyGems, Cargo, Packagist, Hex, OSS-Fuzz, Linux, Android, and GitHub Actions.
-  humanURL: https://osv.dev/
-  baseURL: https://api.osv.dev
-  tags:
-  - Vulnerabilities
-  - Supply Chain
-  - Database
-  - Open Source
-  properties:
-  - type: Documentation
-    url: https://google.github.io/osv.dev/api/
-  - type: Documentation
-    url: https://osv.dev/
-  - type: GitHubRepository
-    url: https://github.com/google/osv.dev
-  - type: GitHubRepository
-    url: https://github.com/ossf/osv-schema
-  - type: OpenAPI
-    url: https://raw.githubusercontent.com/api-evangelist/openssf/refs/heads/main/openapi/openssf-osv-openapi.yml
-  - type: JSONSchema
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/openssf/refs/heads/main/json-schema/openssf-osv-vulnerability-schema.json
-  - type: JSONLDContext
-    url: https://raw.githubusercontent.com/api-evangelist/openssf/refs/heads/main/json-ld/openssf-context.jsonld
-- aid: openssf:scorecard-api
-  name: OpenSSF Scorecard API
-  description: >-
-    The OpenSSF Scorecard API returns automated security health metrics for public open source repositories. Scorecard
-    runs a series of checks (e.g., Branch-Protection, Code-Review, Pinned-Dependencies, Signed-Releases,
-    Token-Permissions, Vulnerabilities) and exposes per-check scores plus an aggregate 0-10 score via
-    api.securityscorecards.dev.
-  humanURL: https://scorecard.dev/
-  baseURL: https://api.securityscorecards.dev
-  tags:
-  - Security Health
-  - Repositories
-  - Supply Chain
-  properties:
-  - type: Documentation
-    url: https://github.com/ossf/scorecard
-  - type: Documentation
-    url: https://scorecard.dev/
-  - type: OpenAPI
-    url: https://raw.githubusercontent.com/api-evangelist/openssf/refs/heads/main/openapi/openssf-scorecard-openapi.yml
-  - type: JSONLDContext
-    url: https://raw.githubusercontent.com/api-evangelist/openssf/refs/heads/main/json-ld/openssf-context.jsonld
 - aid: openssf:sigstore-api
   name: Sigstore Public Good APIs
   description: >-
-    Sigstore is an OpenSSF-hosted standard and service for signing, verifying, and protecting software. The
-    public-good Sigstore instance exposes Fulcio (code-signing certificate authority) and Rekor (transparency log)
-    APIs that can be queried programmatically to inspect signing certificates and transparency log entries.
+    Sigstore is an OpenSSF-hosted standard and service for signing, verifying, and protecting software.
+    The public-good Sigstore instance exposes Fulcio (code-signing certificate authority) and Rekor (transparency
+    log) APIs that can be queried programmatically to inspect signing certificates and transparency log
+    entries.
   humanURL: https://www.sigstore.dev/
   baseURL: https://rekor.sigstore.dev
   tags:
@@ -94,8 +56,8 @@ apis:
 - aid: openssf:guac-api
   name: GUAC (Graph for Understanding Artifact Composition)
   description: >-
-    GUAC aggregates software supply-chain security metadata (SBOMs, attestations, vulnerabilities, signatures) into a
-    queryable graph. GUAC exposes a GraphQL API for supply-chain queries when self-hosted.
+    GUAC aggregates software supply-chain security metadata (SBOMs, attestations, vulnerabilities, signatures)
+    into a queryable graph. GUAC exposes a GraphQL API for supply-chain queries when self-hosted.
   humanURL: https://guac.sh/
   baseURL: https://guac.sh
   tags:
@@ -109,6 +71,146 @@ apis:
     url: https://github.com/guacsec/guac
   - url: graphql/openssf-graphql.md
     type: GraphQL
+- aid: openssf:openssf-projects-api
+  name: OpenSSF Projects API
+  description: The Projects API from OpenSSF — 1 operation(s) for projects.
+  humanURL: https://osv.dev/
+  baseURL: https://api.osv.dev
+  tags:
+  - Projects
+  properties:
+  - type: OpenAPI
+    url: openapi/openssf-projects-api-openapi.yml
+  - type: Documentation
+    url: https://google.github.io/osv.dev/api/
+  - type: Documentation
+    url: https://osv.dev/
+  - type: GitHubRepository
+    url: https://github.com/google/osv.dev
+  - type: GitHubRepository
+    url: https://github.com/ossf/osv-schema
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/openssf/refs/heads/main/json-schema/openssf-osv-vulnerability-schema.json
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/openssf/refs/heads/main/json-ld/openssf-context.jsonld
+  - type: Documentation
+    url: https://github.com/ossf/scorecard
+  - type: Documentation
+    url: https://scorecard.dev/
+- aid: openssf:openssf-query-api
+  name: OpenSSF Query API
+  description: The Query API from OpenSSF — 1 operation(s) for query.
+  humanURL: https://osv.dev/
+  baseURL: https://api.osv.dev
+  tags:
+  - Query
+  properties:
+  - type: OpenAPI
+    url: openapi/openssf-query-api-openapi.yml
+  - type: Documentation
+    url: https://google.github.io/osv.dev/api/
+  - type: Documentation
+    url: https://osv.dev/
+  - type: GitHubRepository
+    url: https://github.com/google/osv.dev
+  - type: GitHubRepository
+    url: https://github.com/ossf/osv-schema
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/openssf/refs/heads/main/json-schema/openssf-osv-vulnerability-schema.json
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/openssf/refs/heads/main/json-ld/openssf-context.jsonld
+  - type: Documentation
+    url: https://github.com/ossf/scorecard
+  - type: Documentation
+    url: https://scorecard.dev/
+- aid: openssf:openssf-querybatch-api
+  name: OpenSSF Querybatch API
+  description: The Querybatch API from OpenSSF — 1 operation(s) for querybatch.
+  humanURL: https://osv.dev/
+  baseURL: https://api.osv.dev
+  tags:
+  - Querybatch
+  properties:
+  - type: OpenAPI
+    url: openapi/openssf-querybatch-api-openapi.yml
+  - type: Documentation
+    url: https://google.github.io/osv.dev/api/
+  - type: Documentation
+    url: https://osv.dev/
+  - type: GitHubRepository
+    url: https://github.com/google/osv.dev
+  - type: GitHubRepository
+    url: https://github.com/ossf/osv-schema
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/openssf/refs/heads/main/json-schema/openssf-osv-vulnerability-schema.json
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/openssf/refs/heads/main/json-ld/openssf-context.jsonld
+  - type: Documentation
+    url: https://github.com/ossf/scorecard
+  - type: Documentation
+    url: https://scorecard.dev/
+- aid: openssf:openssf-v1experimental-api
+  name: OpenSSF V1experimental API
+  description: The V1experimental API from OpenSSF — 2 operation(s) for v1experimental.
+  humanURL: https://osv.dev/
+  baseURL: https://api.osv.dev
+  tags:
+  - V1experimental
+  properties:
+  - type: OpenAPI
+    url: openapi/openssf-v1experimental-api-openapi.yml
+  - type: Documentation
+    url: https://google.github.io/osv.dev/api/
+  - type: Documentation
+    url: https://osv.dev/
+  - type: GitHubRepository
+    url: https://github.com/google/osv.dev
+  - type: GitHubRepository
+    url: https://github.com/ossf/osv-schema
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/openssf/refs/heads/main/json-schema/openssf-osv-vulnerability-schema.json
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/openssf/refs/heads/main/json-ld/openssf-context.jsonld
+  - type: Documentation
+    url: https://github.com/ossf/scorecard
+  - type: Documentation
+    url: https://scorecard.dev/
+- aid: openssf:openssf-vulns-api
+  name: OpenSSF Vulns API
+  description: The Vulns API from OpenSSF — 1 operation(s) for vulns.
+  humanURL: https://osv.dev/
+  baseURL: https://api.osv.dev
+  tags:
+  - Vulns
+  properties:
+  - type: OpenAPI
+    url: openapi/openssf-vulns-api-openapi.yml
+  - type: Documentation
+    url: https://google.github.io/osv.dev/api/
+  - type: Documentation
+    url: https://osv.dev/
+  - type: GitHubRepository
+    url: https://github.com/google/osv.dev
+  - type: GitHubRepository
+    url: https://github.com/ossf/osv-schema
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/openssf/refs/heads/main/json-schema/openssf-osv-vulnerability-schema.json
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/openssf/refs/heads/main/json-ld/openssf-context.jsonld
+  - type: Documentation
+    url: https://github.com/ossf/scorecard
+  - type: Documentation
+    url: https://scorecard.dev/
 common:
 - type: AgenticAccess
   url: agentic-access/openssf-agentic-access.yml
