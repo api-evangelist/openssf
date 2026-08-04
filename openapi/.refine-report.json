@@ -1,0 +1,22 @@
+{
+  "provider": "openssf",
+  "sources": [
+    "openssf-projects-api-openapi.yml",
+    "openssf-query-api-openapi.yml",
+    "openssf-querybatch-api-openapi.yml",
+    "openssf-v1experimental-api-openapi.yml",
+    "openssf-vulns-api-openapi.yml"
+  ],
+  "outputs": [
+    "openssf-projects-api-openapi.yml",
+    "openssf-query-api-openapi.yml",
+    "openssf-querybatch-api-openapi.yml",
+    "openssf-v1experimental-api-openapi.yml",
+    "openssf-vulns-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
