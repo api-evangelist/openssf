@@ -1,0 +1,187 @@
+{
+  "item": [
+    {
+      "id": "0c6fb138-471b-4222-badf-6e1ee9497033",
+      "name": "V1experimental",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a2e05c8a-48ef-4917-885c-c9c0387d50fd",
+          "name": "Determine probable versions of a C/C++ project (experimental)",
+          "request": {
+            "name": "Determine probable versions of a C/C++ project (experimental)",
+            "description": {
+              "content": "Experimental endpoint that returns probable versions of a C/C++ project given a set of file hashes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1experimental",
+                "determineversion"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9d1367da-48e8-4e72-b0bb-4f2e90b3bca0",
+              "name": "Candidate versions.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1experimental",
+                    "determineversion"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2ed95a2b-8c6b-4316-9971-069e7e6c3ff0",
+          "name": "Import-time quality check findings (experimental)",
+          "request": {
+            "name": "Import-time quality check findings (experimental)",
+            "description": {
+              "content": "Retrieve records that failed import-time quality checks for a given source.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1experimental",
+                "importfindings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "source",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "402d1038-b4a0-4904-ab58-18dfa8d025be",
+              "name": "Import findings.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1experimental",
+                    "importfindings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "source",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.osv.dev",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "99d07bf5-b458-4e91-8c9a-a690f7624beb",
+    "name": "OSV (Open Source Vulnerabilities) Projects V1experimental API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "OSV is a distributed open source vulnerability database and triage infrastructure project hosted by the Open Source Security Foundation (OpenSSF). The OSV API exposes vulnerability records keyed to specific package versions or commits across multiple ecosystems (npm, PyPI, Maven, Go, NuGet, RubyGems, Cargo, Packagist, Hex, OSS-Fuzz, Linux, Android, GitHub Actions, etc.).\n\nContact Support:\n Name: OSV",
+      "type": "text/plain"
+    }
+  }
+}

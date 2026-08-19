@@ -1,0 +1,36 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OSV (Open Source Vulnerabilities) Projects Vulns API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Vulns",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get vulnerability by OSV ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.osv.dev/v1/vulns/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Return a Vulnerability object for a given OSV ID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

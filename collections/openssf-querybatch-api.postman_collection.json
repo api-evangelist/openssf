@@ -1,0 +1,125 @@
+{
+  "item": [
+    {
+      "id": "c17a776b-2b54-4b1b-a973-f26d779381c2",
+      "name": "Querybatch",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "34b0b684-c884-47e2-b409-d8c2f8dac8ce",
+          "name": "Batched vulnerability query",
+          "request": {
+            "name": "Batched vulnerability query",
+            "description": {
+              "content": "Batched query for multiple package versions or commit hashes in a single request. Returns vulnerability ID lists per query that can be hydrated via /v1/vulns/{id}.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "querybatch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"queries\": [\n    {\n      \"commit\": \"<string>\",\n      \"version\": \"<string>\",\n      \"package\": {\n        \"name\": \"<string>\",\n        \"ecosystem\": \"<string>\",\n        \"purl\": \"<string>\"\n      },\n      \"page_token\": \"<string>\"\n    },\n    {\n      \"commit\": \"<string>\",\n      \"version\": \"<string>\",\n      \"package\": {\n        \"name\": \"<string>\",\n        \"ecosystem\": \"<string>\",\n        \"purl\": \"<string>\"\n      },\n      \"page_token\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f111b314-f890-4083-a99f-a48738b5459e",
+              "name": "Per-query vulnerability ID lists.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "querybatch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"queries\": [\n    {\n      \"commit\": \"string\",\n      \"version\": \"string\",\n      \"package\": {\n        \"name\": \"string\",\n        \"ecosystem\": \"string\",\n        \"purl\": \"string\"\n      },\n      \"page_token\": \"string\"\n    },\n    {\n      \"commit\": \"string\",\n      \"version\": \"string\",\n      \"package\": {\n        \"name\": \"string\",\n        \"ecosystem\": \"string\",\n        \"purl\": \"string\"\n      },\n      \"page_token\": \"string\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"vulns\": [\n        {\n          \"id\": \"string\",\n          \"modified\": \"2019-04-29T06:47:21.268Z\"\n        },\n        {\n          \"id\": \"string\",\n          \"modified\": \"1960-04-05T05:37:20.872Z\"\n        }\n      ]\n    },\n    {\n      \"vulns\": [\n        {\n          \"id\": \"string\",\n          \"modified\": \"1994-01-08T15:57:15.254Z\"\n        },\n        {\n          \"id\": \"string\",\n          \"modified\": \"1982-04-28T17:01:19.677Z\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.osv.dev",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "ab428b8d-7527-4cf0-bf7f-bc3edc12bde5",
+    "name": "OSV (Open Source Vulnerabilities) Projects Querybatch API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "OSV is a distributed open source vulnerability database and triage infrastructure project hosted by the Open Source Security Foundation (OpenSSF). The OSV API exposes vulnerability records keyed to specific package versions or commits across multiple ecosystems (npm, PyPI, Maven, Go, NuGet, RubyGems, Cargo, Packagist, Hex, OSS-Fuzz, Linux, Android, GitHub Actions, etc.).\n\nContact Support:\n Name: OSV",
+      "type": "text/plain"
+    }
+  }
+}

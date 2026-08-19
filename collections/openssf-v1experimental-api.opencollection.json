@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OSV (Open Source Vulnerabilities) Projects V1experimental API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "V1experimental",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Determine probable versions of a C/C++ project (experimental)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.osv.dev/v1experimental/determineversion",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Experimental endpoint that returns probable versions of a C/C++ project given a set of file hashes."
+        },
+        {
+          "info": {
+            "name": "Import-time quality check findings (experimental)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.osv.dev/v1experimental/importfindings",
+            "params": [
+              {
+                "name": "source",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve records that failed import-time quality checks for a given source."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

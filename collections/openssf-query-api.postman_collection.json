@@ -1,0 +1,125 @@
+{
+  "item": [
+    {
+      "id": "d1d1c9bf-ca49-49e3-8eb2-88ee8d2d1a45",
+      "name": "Query",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5fb5c26f-089c-41ee-bf33-2aaca4e1ec89",
+          "name": "Query vulnerabilities for a package or commit",
+          "request": {
+            "name": "Query vulnerabilities for a package or commit",
+            "description": {
+              "content": "Query vulnerabilities for a project at a given commit hash or for a specific package and version. Returns matching OSV vulnerability records.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "query"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"commit\": \"<string>\",\n  \"version\": \"<string>\",\n  \"package\": {\n    \"name\": \"<string>\",\n    \"ecosystem\": \"<string>\",\n    \"purl\": \"<string>\"\n  },\n  \"page_token\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4b564835-c944-4558-8948-6b227863e09b",
+              "name": "Matching vulnerabilities.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"commit\": \"<string>\",\n  \"version\": \"<string>\",\n  \"package\": {\n    \"name\": \"<string>\",\n    \"ecosystem\": \"<string>\",\n    \"purl\": \"<string>\"\n  },\n  \"page_token\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"vulns\": [\n    {\n      \"schema_version\": \"string\",\n      \"id\": \"string\",\n      \"modified\": \"1980-11-18T01:19:03.834Z\",\n      \"published\": \"1961-09-15T02:09:45.513Z\",\n      \"withdrawn\": \"1995-12-26T13:15:18.359Z\",\n      \"aliases\": [\n        \"string\",\n        \"string\"\n      ],\n      \"related\": [\n        \"string\",\n        \"string\"\n      ],\n      \"summary\": \"string\",\n      \"details\": \"string\",\n      \"severity\": [\n        {\n          \"type\": \"string\",\n          \"score\": \"string\"\n        },\n        {\n          \"type\": \"string\",\n          \"score\": \"string\"\n        }\n      ],\n      \"affected\": [\n        {\n          \"package\": {\n            \"ecosystem\": \"string\",\n            \"name\": \"string\",\n            \"purl\": \"string\"\n          },\n          \"versions\": [\n            \"string\",\n            \"string\"\n          ],\n          \"ecosystem_specific\": {},\n          \"database_specific\": {}\n        },\n        {\n          \"package\": {\n            \"ecosystem\": \"string\",\n            \"name\": \"string\",\n            \"purl\": \"string\"\n          },\n          \"versions\": [\n            \"string\",\n            \"string\"\n          ],\n          \"ecosystem_specific\": {},\n          \"database_specific\": {}\n        }\n      ],\n      \"references\": [\n        {\n          \"type\": \"string\",\n          \"url\": \"string\"\n        },\n        {\n          \"type\": \"string\",\n          \"url\": \"string\"\n        }\n      ],\n      \"database_specific\": {}\n    },\n    {\n      \"schema_version\": \"string\",\n      \"id\": \"string\",\n      \"modified\": \"2003-08-12T07:46:35.756Z\",\n      \"published\": \"1991-07-13T00:20:00.415Z\",\n      \"withdrawn\": \"1970-09-13T06:53:17.148Z\",\n      \"aliases\": [\n        \"string\",\n        \"string\"\n      ],\n      \"related\": [\n        \"string\",\n        \"string\"\n      ],\n      \"summary\": \"string\",\n      \"details\": \"string\",\n      \"severity\": [\n        {\n          \"type\": \"string\",\n          \"score\": \"string\"\n        },\n        {\n          \"type\": \"string\",\n          \"score\": \"string\"\n        }\n      ],\n      \"affected\": [\n        {\n          \"package\": {\n            \"ecosystem\": \"string\",\n            \"name\": \"string\",\n            \"purl\": \"string\"\n          },\n          \"versions\": [\n            \"string\",\n            \"string\"\n          ],\n          \"ecosystem_specific\": {},\n          \"database_specific\": {}\n        },\n        {\n          \"package\": {\n            \"ecosystem\": \"string\",\n            \"name\": \"string\",\n            \"purl\": \"string\"\n          },\n          \"versions\": [\n            \"string\",\n            \"string\"\n          ],\n          \"ecosystem_specific\": {},\n          \"database_specific\": {}\n        }\n      ],\n      \"references\": [\n        {\n          \"type\": \"string\",\n          \"url\": \"string\"\n        },\n        {\n          \"type\": \"string\",\n          \"url\": \"string\"\n        }\n      ],\n      \"database_specific\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.osv.dev",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "ade9f083-317b-4942-9195-4594ff40d7fe",
+    "name": "OSV (Open Source Vulnerabilities) Projects Query API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "OSV is a distributed open source vulnerability database and triage infrastructure project hosted by the Open Source Security Foundation (OpenSSF). The OSV API exposes vulnerability records keyed to specific package versions or commits across multiple ecosystems (npm, PyPI, Maven, Go, NuGet, RubyGems, Cargo, Packagist, Hex, OSS-Fuzz, Linux, Android, GitHub Actions, etc.).\n\nContact Support:\n Name: OSV",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,161 @@
+{
+  "item": [
+    {
+      "id": "4ac389e7-d1db-4945-8578-fee71b4bb134",
+      "name": "Vulns",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e8e92cd9-c95f-4d39-a897-88539b7efcf5",
+          "name": "Get vulnerability by OSV ID",
+          "request": {
+            "name": "Get vulnerability by OSV ID",
+            "description": {
+              "content": "Return a Vulnerability object for a given OSV ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "vulns",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "eef50797-01c0-4f25-9fb7-7c8e08acea7a",
+              "name": "Vulnerability record.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "vulns",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"schema_version\": \"string\",\n  \"id\": \"string\",\n  \"modified\": \"1951-08-22T22:12:20.589Z\",\n  \"published\": \"1953-07-14T01:54:47.529Z\",\n  \"withdrawn\": \"1991-11-10T11:01:41.225Z\",\n  \"aliases\": [\n    \"string\",\n    \"string\"\n  ],\n  \"related\": [\n    \"string\",\n    \"string\"\n  ],\n  \"summary\": \"string\",\n  \"details\": \"string\",\n  \"severity\": [\n    {\n      \"type\": \"string\",\n      \"score\": \"string\"\n    },\n    {\n      \"type\": \"string\",\n      \"score\": \"string\"\n    }\n  ],\n  \"affected\": [\n    {\n      \"package\": {\n        \"ecosystem\": \"string\",\n        \"name\": \"string\",\n        \"purl\": \"string\"\n      },\n      \"versions\": [\n        \"string\",\n        \"string\"\n      ],\n      \"ecosystem_specific\": {},\n      \"database_specific\": {}\n    },\n    {\n      \"package\": {\n        \"ecosystem\": \"string\",\n        \"name\": \"string\",\n        \"purl\": \"string\"\n      },\n      \"versions\": [\n        \"string\",\n        \"string\"\n      ],\n      \"ecosystem_specific\": {},\n      \"database_specific\": {}\n    }\n  ],\n  \"references\": [\n    {\n      \"type\": \"string\",\n      \"url\": \"string\"\n    },\n    {\n      \"type\": \"string\",\n      \"url\": \"string\"\n    }\n  ],\n  \"database_specific\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c8956ed5-cf05-425b-bfcb-ab1a973ff79b",
+              "name": "Vulnerability not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "vulns",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.osv.dev",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "9c61984d-294a-46ef-a4b8-3478823b229c",
+    "name": "OSV (Open Source Vulnerabilities) Projects Vulns API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "OSV is a distributed open source vulnerability database and triage infrastructure project hosted by the Open Source Security Foundation (OpenSSF). The OSV API exposes vulnerability records keyed to specific package versions or commits across multiple ecosystems (npm, PyPI, Maven, Go, NuGet, RubyGems, Cargo, Packagist, Hex, OSS-Fuzz, Linux, Android, GitHub Actions, etc.).\n\nContact Support:\n Name: OSV",
+      "type": "text/plain"
+    }
+  }
+}

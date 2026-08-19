@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OSV (Open Source Vulnerabilities) Projects Query API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Query",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query vulnerabilities for a package or commit",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.osv.dev/v1/query",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Query vulnerabilities for a project at a given commit hash or for a specific package and version. Returns matching OSV vulnerability records."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

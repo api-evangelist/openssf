@@ -1,0 +1,223 @@
+{
+  "item": [
+    {
+      "id": "5e426aa1-5f7c-414b-865a-19ac03ba5eea",
+      "name": "Projects",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "75727794-7a66-4e10-8d17-839ad119b82d",
+          "name": "Get Scorecard report for a repository",
+          "request": {
+            "name": "Get Scorecard report for a repository",
+            "description": {
+              "content": "Return the most recent Scorecard report for a public repository on a supported source-control platform. Reports include the aggregate score, the date of evaluation, the Scorecard version, and per-check scores with documentation URLs.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "projects",
+                ":platform",
+                ":org",
+                ":repo"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "commit",
+                  "value": "<string>",
+                  "description": "Optional commit hash to retrieve a historical report."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "platform",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "org",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "repo",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ff28e156-00a8-4038-b1ff-78acf7178d8f",
+              "name": "Scorecard report.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":platform",
+                    ":org",
+                    ":repo"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "commit",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "platform",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "org",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "repo",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"date\": \"2014-03-03\",\n  \"repo\": {\n    \"name\": \"string\",\n    \"commit\": \"string\"\n  },\n  \"scorecard\": {\n    \"version\": \"string\",\n    \"commit\": \"string\"\n  },\n  \"score\": 8.854100530769017,\n  \"checks\": [\n    {\n      \"name\": \"string\",\n      \"score\": 7,\n      \"reason\": \"string\",\n      \"details\": [\n        \"string\",\n        \"string\"\n      ],\n      \"documentation\": {\n        \"short\": \"string\",\n        \"url\": \"https://WEGpnvHqVfVSHVCqWUNHXguwJZXS.usslhnIi8d3EQoxa5bdx3VhhKRQfoxsEZqqwmuclxDHO\"\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"score\": 8,\n      \"reason\": \"string\",\n      \"details\": [\n        \"string\",\n        \"string\"\n      ],\n      \"documentation\": {\n        \"short\": \"string\",\n        \"url\": \"http://pASuymHM.vfwJSnOr+c.VCUb7tU9Sh7XMUcRoW5BzCqXMr-EmP74gULtgwWOCktQiq\"\n      }\n    }\n  ],\n  \"metadata\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e0009f87-dfbb-4bf0-8c59-b25f04f985ec",
+              "name": "No report available for this repository.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":platform",
+                    ":org",
+                    ":repo"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "commit",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "platform",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "org",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "repo",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.osv.dev",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "243d388a-08c2-499f-9d82-882f3cd85d6c",
+    "name": "OSV (Open Source Vulnerabilities) Projects API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "OSV is a distributed open source vulnerability database and triage infrastructure project hosted by the Open Source Security Foundation (OpenSSF). The OSV API exposes vulnerability records keyed to specific package versions or commits across multiple ecosystems (npm, PyPI, Maven, Go, NuGet, RubyGems, Cargo, Packagist, Hex, OSS-Fuzz, Linux, Android, GitHub Actions, etc.).\n\nContact Support:\n Name: OSV",
+      "type": "text/plain"
+    }
+  }
+}

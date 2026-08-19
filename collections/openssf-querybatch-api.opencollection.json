@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OSV (Open Source Vulnerabilities) Projects Querybatch API",
+    "version": "1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Querybatch",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Batched vulnerability query",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.osv.dev/v1/querybatch",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Batched query for multiple package versions or commit hashes in a single request. Returns vulnerability ID lists per query that can be hydrated via /v1/vulns/{id}."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
