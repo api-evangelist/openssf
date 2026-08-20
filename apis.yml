@@ -24,6 +24,12 @@ access: 3rd-Party
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/openssf.png
 tags:
 - Linux Foundation
+- Open-Source
+- Security
+- Supply Chain
+- Vulnerabilities
+tags_raw:
+- Linux Foundation
 - Open Source
 - Security
 - Supply Chain
@@ -77,6 +83,8 @@ apis:
   humanURL: https://osv.dev/
   baseURL: https://api.osv.dev
   tags:
+  - Project
+  tags_raw:
   - Projects
   properties:
   - type: OpenAPI
