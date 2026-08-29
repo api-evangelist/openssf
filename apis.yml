@@ -7,6 +7,19 @@ description: >-
   stewards a number of projects with public REST APIs, including the OSV (Open Source Vulnerabilities) database, the
   Scorecard automated security health-check service, and Sigstore signing infrastructure.
 type: Index
+deliveryModel:
+  model: unknown
+  license: Apache 2.0
+  open_source: false
+  commercial: false
+  callable_host: true
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - license
+  - openapi
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: unknown
@@ -220,6 +233,16 @@ apis:
   - type: Documentation
     url: https://scorecard.dev/
 common:
+- type: IssueTracker
+  url: https://github.com/guacsec/guac/issues
+- type: Releases
+  url: https://github.com/guacsec/guac/releases
+- type: SecurityPolicy
+  url: https://github.com/guacsec/guac/blob/main/SECURITY-INSIGHTS.yml
+- type: CodeOfConduct
+  url: https://github.com/guacsec/guac/blob/main/CODE_OF_CONDUCT.md
+- type: ContributionGuide
+  url: https://github.com/guacsec/guac/blob/main/CONTRIBUTING.md
 - type: AgenticAccess
   url: agentic-access/openssf-agentic-access.yml
 - type: DomainSecurity
