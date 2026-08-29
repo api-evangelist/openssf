@@ -1,17 +1,19 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: OSV (Open Source Vulnerabilities) Projects API
-  description: OSV is a distributed open source vulnerability database and triage infrastructure project hosted by the Open Source Security Foundation (OpenSSF). The OSV API exposes vulnerability records keyed to specific package versions or commits across multiple ecosystems (npm, PyPI, Maven, Go, NuGet, RubyGems, Cargo, Packagist, Hex, OSS-Fuzz, Linux, Android, GitHub Actions, etc.).
+  title: OpenSSF Scorecard Projects API
+  description: The OpenSSF Scorecard public API returns automated security health metrics for open source repositories hosted on supported platforms (currently github.com). Scorecard runs a series of checks (such as Branch-Protection, Code-Review, Dangerous-Workflow, Dependency-Update-Tool, Pinned-Dependencies, Signed-Releases, Token-Permissions, Vulnerabilities) and returns per-check scores plus an aggregate score.
   version: '1'
   contact:
-    name: OSV
-    url: https://osv.dev/
+    name: OpenSSF Scorecard
+    url: https://scorecard.dev/
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
 servers:
-- url: https://api.osv.dev
-  description: OSV production API
+- url: https://api.securityscorecards.dev
+  description: Scorecard public API
+- url: https://api.scorecard.dev
+  description: Scorecard public API (alternate hostname)
 tags:
 - name: Projects
 paths:
@@ -116,5 +118,5 @@ components:
               type: string
               format: uri
 externalDocs:
-  description: OSV API documentation
-  url: https://google.github.io/osv.dev/api/
+  description: OpenSSF Scorecard project
+  url: https://github.com/ossf/scorecard

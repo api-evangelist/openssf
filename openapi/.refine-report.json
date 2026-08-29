@@ -1,22 +1,40 @@
 {
   "provider": "openssf",
   "sources": [
-    "openssf-projects-api-openapi.yml",
-    "openssf-query-api-openapi.yml",
-    "openssf-querybatch-api-openapi.yml",
-    "openssf-v1experimental-api-openapi.yml",
-    "openssf-vulns-api-openapi.yml"
+    "_original/openssf-osv-openapi.yml",
+    "_original/openssf-scorecard-openapi.yml"
   ],
   "outputs": [
-    "openssf-projects-api-openapi.yml",
     "openssf-query-api-openapi.yml",
     "openssf-querybatch-api-openapi.yml",
     "openssf-v1experimental-api-openapi.yml",
-    "openssf-vulns-api-openapi.yml"
+    "openssf-vulns-api-openapi.yml",
+    "openssf-projects-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (2 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "openssf-osv-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "openssf-osv-openapi.yml: tagged paths POST /v1/query -> Query",
+    "openssf-osv-openapi.yml: tagged paths POST /v1/querybatch -> Querybatch",
+    "openssf-osv-openapi.yml: tagged paths GET /v1/vulns/{id} -> Vulns",
+    "openssf-osv-openapi.yml: tagged paths POST /v1experimental/determineversion -> V1experimental",
+    "openssf-osv-openapi.yml: tagged paths GET /v1experimental/importfindings -> V1experimental",
+    "openssf-osv-openapi.yml: declared missing tag: Query",
+    "openssf-osv-openapi.yml: declared missing tag: Querybatch",
+    "openssf-osv-openapi.yml: declared missing tag: V1experimental",
+    "openssf-osv-openapi.yml: declared missing tag: Vulns",
+    "openssf-scorecard-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "openssf-scorecard-openapi.yml: tagged paths GET /projects/{platform}/{org}/{repo} -> Projects",
+    "openssf-scorecard-openapi.yml: declared missing tag: Projects"
+  ],
+  "skipped": [
+    "openssf-projects-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "openssf-query-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "openssf-querybatch-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "openssf-v1experimental-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "openssf-vulns-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
