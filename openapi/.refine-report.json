@@ -28,7 +28,8 @@
     "openssf-osv-openapi.yml: declared missing tag: Vulns",
     "openssf-scorecard-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
     "openssf-scorecard-openapi.yml: tagged paths GET /projects/{platform}/{org}/{repo} -> Projects",
-    "openssf-scorecard-openapi.yml: declared missing tag: Projects"
+    "openssf-scorecard-openapi.yml: declared missing tag: Projects",
+    "apis.yml register: already-registered"
   ],
   "skipped": [
     "openssf-projects-api-openapi.yml: previously refined output, superseded by openapi/_original/",
