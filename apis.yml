@@ -37,7 +37,7 @@ access: 3rd-Party
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/openssf.png
 tags:
 - Linux Foundation
-- Open-Source
+- Open Source
 - Security
 - Supply Chain
 - Vulnerabilities
@@ -47,6 +47,7 @@ tags_raw:
 - Security
 - Supply Chain
 - Vulnerabilities
+- Open-Source
 created: '2026-03-16'
 modified: '2026-05-19'
 url: https://raw.githubusercontent.com/api-evangelist/openssf/refs/heads/main/apis.yml
