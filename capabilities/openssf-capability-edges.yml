@@ -1,0 +1,43 @@
+slug: openssf
+provider: OpenSSF
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 3
+edges:
+- tag: Query
+  spec_file: openssf-query-api-openapi.yml
+  capability_id: BC-620.40
+  capability_id_l1: BC-620
+  capability_name: Vulnerability Management
+  confidence: 0.85
+  evidence: POST /v1/query queryVulnerabilities 'Query vulnerabilities for a package or commit'; schemas
+    QueryRequest, Vulnerability
+  reason: Queries a vulnerability database by package version or commit to identify known vulnerabilities
+    — the identification half of vulnerability management.
+- tag: Vulns
+  spec_file: openssf-vulns-api-openapi.yml
+  capability_id: BC-620.40
+  capability_id_l1: BC-620
+  capability_name: Vulnerability Management
+  confidence: 0.85
+  evidence: GET /v1/vulns/{id} getVulnerability 'Get vulnerability by OSV ID'; schema Vulnerability
+  reason: Retrieves individual vulnerability records from an open source vulnerability database, squarely
+    vulnerability identification and remediation support.
+- tag: Querybatch
+  spec_file: openssf-querybatch-api-openapi.yml
+  capability_id: BC-620.40
+  capability_id_l1: BC-620
+  capability_name: Vulnerability Management
+  confidence: 0.8
+  evidence: POST /v1/querybatch queryVulnerabilitiesBatch 'Batched vulnerability query'
+  reason: Same vulnerability identification surface in batch form; batching is a technical convenience
+    but the payload is vulnerability lookup for dependencies.

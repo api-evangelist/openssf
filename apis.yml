@@ -234,6 +234,9 @@ apis:
   - type: Documentation
     url: https://scorecard.dev/
 common:
+- type: CapabilityMap
+  url: capabilities/openssf-capability-edges.yml
+  name: OpenSSF Business Capability Map
 - type: IssueTracker
   url: https://github.com/guacsec/guac/issues
 - type: Releases
