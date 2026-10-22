@@ -2,6 +2,7 @@ generated: '2026-10-14'
 method: searched
 checked:
 - https://github.com/marketplace?type=actions
+- https://www.bestpractices.dev/en/projects.json
 marketplace_apps: []
 edges:
 - partner_name: GitHub Marketplace (actions)
@@ -22,5 +23,49 @@ edges:
   - Verified creator
   detected_by: sweep-devtools.py
   detected: '2026-10-14'
+- partner_name: OpenSSF Best Practices Badge
+  partner: null
+  partner_match: register
+  type: register
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://www.bestpractices.dev/en/projects/1
+  category: OpenSSF Best Practices badge (open-source project security conformance)
+  contract_reference:
+    register: OpenSSF Best Practices badge projects (bestpractices.dev/en/projects.json, paged)
+    standard: OpenSSF Best Practices Badge criteria (formerly CII Best Practices; bestpractices.dev)
+    spec_file: null
+    role: badge-holder
+    registered_name: BadgeApp
+    matched_by: github-org
+    matched_on: ossf
+    certified_products:
+    - product: open-source project
+      product_type: open-source project
+      standard: OpenSSF Best Practices Badge criteria (formerly CII Best Practices; bestpractices.dev)
+      lapsed: false
+      partner_tier: gold
+      projects:
+      - name: BadgeApp
+        id: 1
+        url: https://www.bestpractices.dev/en/projects/1
+        badge_level: gold
+      - name: OpenSSF Scorecard
+        id: 5621
+        url: https://www.bestpractices.dev/en/projects/5621
+        badge_level: passing
+      baseline_levels:
+      - baseline-1
+      - baseline-2
+      - baseline-3
+    signal_note: 'certified_products = ONE entry (product type: open-source project) with the highest CURRENT badge
+      level in partner_tier; a provider whose projects only lost the badge is lapsed: true; project names are context,
+      never counted; in_progress entries are not conformance'
+    detected_by: sweep-openssf-best-practices-badges.py
+    detected: '2026-10-22'
+    identity_source: apis.yml GitHubOrganization pointer (provider's own declaration)
+  detected_by: sweep-openssf-best-practices-badges.py
+  first_seen: '2026-10-22'
 source:
 - https://github.com/marketplace?type=actions
